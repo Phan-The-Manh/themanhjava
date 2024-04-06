@@ -19,7 +19,10 @@ public class CustomerService implements Management<Customer>{
         Customer customer = new Customer();
         customer.setIdCustomer(customerList.size() + 1);
         customer.setCitizenIdentificationCard("000000001");
+        customer.setAge(18);
+        customer.setPhoneNumber(81122234);
         customerList.add(customer);
+        customerList.add(new Customer(customerList.size()+1, "12000000", 30, 9855943));
         return customer;
         }
 
@@ -35,8 +38,9 @@ public class CustomerService implements Management<Customer>{
 
     @Override
     public void printList() {
-        System.out.printf("%-20s%-30s%-30s%-18s%n", "Customer Id:", "CitizenIdentificationCard:", "Age:", "Phone Number:");
-        System.out.println(customerList);
+        for (int i =0; i < customerList.size(); i++){
+            System.out.println(customerList.get(i));
+        }
 
     }
 
@@ -69,22 +73,9 @@ public class CustomerService implements Management<Customer>{
     }
 
     public static void main(String[] args) {
-        CustomerService customerService = new CustomerService();
-        Customer customer = new Customer(1, "555555555", 12, 11112);
-        customerService.add(customer);
-
-        customerService.add(new Customer(2, "123456789",24, 22223));
-        customerService.printList();
-
-        System.out.println("___________________________");
-        Customer updatedcustomer = new Customer (4, "81132329", 36, 33334);
-        customerService.updateByID(2, updatedcustomer);
-
-        System.out.println("_______________________________");
-        System.out.println(customerService.findByID(3));
-        customerService.delete(3);
-        customerService.printList();
-
+       CustomerService customerService = new CustomerService();
+       customerService.add(new Customer(customerList.size()+1, "00000003", 40, 66388));
+       customerService.printList();
     }
     }
 

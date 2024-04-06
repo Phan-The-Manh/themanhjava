@@ -59,4 +59,10 @@ public class Room {
     public void setPrice(long price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        System.out.printf("%-16s%-26s%-26s%-26s%-10s%n", "Room Number:", "Status:", "Number Of Bed rooms", "Number Of Bath Rooms", "Price");
+        return String.format("%-16s%-26s%-26s%-26s%-10s%n", getRoomNumber(), getStatus(), getBedroomNumber(), getBathroomNumber(), getPrice());
+    }
 }

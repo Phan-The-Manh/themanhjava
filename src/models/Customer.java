@@ -51,7 +51,7 @@ public class Customer {
 
     @Override
     public String toString() {
-
-        return String.format("%-20s%-30s%-30s%-18s", getIdCustomer(), getCitizenIdentificationCard(), getAge(), getPhoneNumber());
+        System.out.printf("%-20s%-35s%-30s%-18s%n", "Customer Id:", "CitizenIdentificationCard:", "Age:", "Phone Number:");
+        return String.format("%-20s%-35s%-30s%-18s", getIdCustomer(), getCitizenIdentificationCard(), getAge(), getPhoneNumber());
     }
 }

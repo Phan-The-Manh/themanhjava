@@ -37,7 +37,9 @@ public class UserService implements Management<User> {
 
     @Override
     public void printList() {
-        System.out.println(userList);
+      for (int i=0; i<userList.size(); i++){
+          System.out.println(userList.get(i));
+      }
 
     }
 
@@ -54,6 +56,7 @@ public class UserService implements Management<User> {
     @Override
     public void add(User user) {
         user.setiD(userList.size() + 1);
+        user.setRole("User");
         userList.add(user);
 
     }
@@ -67,7 +70,17 @@ public class UserService implements Management<User> {
         }
 
     }
+
+    public static void main(String[] args) {
+        UserService userService = new UserService();
+        userService.add(new User("Khanh", "111" ));
+        userService.printList();
+    }
     public boolean checkLogin(String username, String password){
+        UserService userService = new UserService();
+        userService.add(new User("Manh", "123"));
+        userService.add(new User("Manh2", "1234"));
+        userService.add(new User("Manh3", "12345"));
         for (int i =0; i<userList.size(); i++){
             if(userList.get(i).getUserName().equals(username) && userList.get(i).getPassWord().equals(password)) {
                 user = userList.get(i);
